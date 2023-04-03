@@ -121,9 +121,6 @@ static const char *token_names[] = {
 	"var", // VAR,
 	"void", // VOID,
 	"yield", // YIELD,
-	// Lambdas
-	"->", // ARROW_RIGHT
-	"=>", // ARROW_RIGHT_EQUALS
 	// Punctuation
 	"[", // BRACKET_OPEN,
 	"]", // BRACKET_CLOSE,
@@ -138,6 +135,7 @@ static const char *token_names[] = {
 	":", // COLON,
 	"$", // DOLLAR,
 	"->", // FORWARD_ARROW,
+	"=>", // FORWARD_ARROW_EQUALS,
 	"_", // UNDERSCORE,
 	// Whitespace
 	"Newline", // NEWLINE,
@@ -1514,6 +1512,9 @@ GDScriptTokenizer::Token GDScriptTokenizer::scan() {
 		case '=':
 			if (_peek() == '=') {
 				return check_vcs_marker('=', Token::EQUAL_EQUAL);
+			} else if (_peek() == '>') {
+				_advance();
+				return make_token(Token::FORWARD_ARROW_EQUALS);
 			} else {
 				return make_token(Token::EQUAL);
 			}
