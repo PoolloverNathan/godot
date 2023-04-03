@@ -121,6 +121,9 @@ static const char *token_names[] = {
 	"var", // VAR,
 	"void", // VOID,
 	"yield", // YIELD,
+	// Lambdas
+	"->", // ARROW_RIGHT
+	"=>", // ARROW_RIGHT_EQUALS
 	// Punctuation
 	"[", // BRACKET_OPEN,
 	"]", // BRACKET_CLOSE,
