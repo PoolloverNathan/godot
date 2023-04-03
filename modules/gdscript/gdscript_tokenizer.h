@@ -128,6 +128,9 @@ public:
 			VAR,
 			VOID,
 			YIELD,
+			// Lambdas
+			ARROW_RIGHT,
+			ARROW_RIGHT_EQUALS,
 			// Punctuation
 			BRACKET_OPEN,
 			BRACKET_CLOSE,
